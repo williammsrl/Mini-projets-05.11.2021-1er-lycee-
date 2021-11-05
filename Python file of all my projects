@@ -1,0 +1,328 @@
+-----------------------------------------------------PROJET I-----------------------------------------------------------------------
+def arnaqueAerienne(prixInit, listeHaruhi):
+    
+    """
+    In : float, list of float, prix initial , liste de nouveau prix
+    Out : str, Arnaque ou pas en fonction si le prix est supérieur au prix initial ou non
+    """
+    a = 0
+    
+    for i in listeHaruhi:
+        if i < prixInit :
+            a = a + 1
+    if a < 3:
+        print("Ok bon voyage, bisous, n'oublie pas de m'envoyer des photos !")
+    
+    else:
+        print("ARNAQUE")
+  
+#TESTS  
+arnaqueAerienne(820,[580, 2000, 970, 1050, 820])
+arnaqueAerienne(570,[495, 1200 ,540 ,450])
+arnaqueAerienne(-1,[495, 1200 ,540 ,450])
+arnaqueAerienne(1,[-1, -2 ,-3,-4])
+arnaqueAerienne(0,[0,0,0,0])
+
+-----------------------------------------------------PROJET II----------------------------------------------------------------------
+
+def dalmatienI(monChien):
+    
+    """
+    In :  list of list, tableau en bits 
+    Out : list of list, inverse du tableau en bits
+    """
+    
+    for i in range (len(monChien)):
+        
+        for x in range (len(monChien[i])):
+            if monChien[i][x] == 0:
+                monChien[i][x] = 1
+
+                
+            elif monChien[i][x]==1:
+                monChien[i][x] = 0
+                
+                
+    return monChien
+
+dalmatienI([[0,0,0],[1,0,1],[0,1,0]])
+
+##TESTS
+print('image de monChien inversée:',dalmatienI([[0,0,0],[1,0,1],[0,1,0]]))
+
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+for alea in range (5):
+    a = random.randrange(1 ,10, 1)
+    invert = [[random.randrange(0 ,2, 1) for i in range(a)],[random.randrange(0 ,2, 1) for i in range(a)],[random.randrange(0 ,2, 1) for i in range(a)]]
+    print('une image aléatoire : ',invert)
+    print('son inverse :',dalmatienI(invert))
+
+
+-----------------------------------------------------PROJET III---------------------------------------------------------------------
+
+def freqADNPlus(nucléotides):
+    """
+    IN:str : str, Une chaîne de caractères, la séquence d'ADN de longueur N
+    OUT:str, Le nucléotide le plus fréquent dans la séquence d'ADN.
+    """
+    o=0
+    t=nucléotides.count("T")
+    for i in "TGCA":
+        if nucléotides.count(i)>=t:
+            t=nucléotides.count(i)
+            o=i
+    print('pour la séquence',nucléotides,'la lettre la plus répété est :')
+    return o
+    
+#TESTS
+print(freqADNPlus("ATTGCCATATCC"))
+print(freqADNPlus("AAAACCCGGGTTT"))
+print(freqADNPlus("GGTTABC"))
+print(freqADNPlus("ACGT"))
+print(freqADNPlus("TGCA"))
+print(freqADNPlus("TTAA"))
+print(freqADNPlus("AAAAAACCCCCCCCCCCCCCT"))
+
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+
+for alea in range (5):
+    freq_adn_alea = ''.join((random.choice('TGCA') for i in range(random.randint(0,10))))
+    print(freqADNPlus(freq_adn_alea))
+    
+-----------------------------------------------------PROJET IV----------------------------------------------------------------------
+
+def timeStamps(soumission):
+    '''
+    In: list of int, Trois listes de couples de nombre entiers
+    Out:int, place du tuple dans la liste donné
+    '''
+    heure = []
+    minute = []
+    
+    if soumission[0][0] != soumission[1][0] != soumission[2][0] or soumission[0][0] == soumission[1][0] > soumission[2][0] or soumission[0][0] < soumission[1][0] == soumission[2][0] or soumission[0][0] == soumission[2][0] > soumission[1][0]:#Si toutes les heures sont différentes et pas de tuples avec les mêmes heures supérieurs à un autre
+        for a in range (len(soumission)):
+            heure.append(soumission[a][0])
+            pluspetiteheure = min(heure)
+            
+        for b in range (len(soumission)):
+            if pluspetiteheure in soumission[b] :
+                return 'pour la liste',soumission,(soumission.index(soumission[b])+1)
+            
+            
+    elif soumission[0][0] == soumission[1][0] == soumission[2][0] and soumission[0][1] == soumission[1][1] == soumission[2][1]: #si tous les tuples sont égaux
+        return 'toutes les heures sont égales pour la liste' , soumission
+        
+        
+    else : #si il y a deux tuples avec les mêmes heures
+        for c in range (len(soumission)):
+            heure.append(soumission[c][0])
+        heure.remove(max(heure))
+    
+        for d in range (len(soumission)):
+            if heure[0] in soumission[d]: 
+                minute.append(soumission[d][1])
+                pluspetiteminute = min(minute)
+              
+        for e in range (len(soumission)):
+            if pluspetiteminute in soumission[e]:
+                return 'pour la liste',soumission,(soumission.index(soumission[e])+1)
+                
+#TESTS
+
+print(timeStamps([(7,58),(20,26),(9,29)]))
+print(timeStamps([(10,34),(9,26),(11,29)]))
+print(timeStamps([(1,34),(2,26),(3,29)]))
+print(timeStamps([(10,48),(9,3),(9,39)]))
+print(timeStamps([(10,48),(4,41),(4,40)]))
+print(timeStamps([(17,27),(17,15),(7,4)]))
+print(timeStamps([(7,27),(17,15),(17,4)]))
+print(timeStamps([(17,10),(7,15),(17,30)]))
+print(timeStamps([(7,27),(7,15),(7,4)]))
+print(timeStamps([(7,10),(7,10),(7,10)]))
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+
+for alea in range (5):
+    soumission_alea = [(random.randint(1,24),random.randint(1,60)),(random.randint(1,24),random.randint(1,60)),(random.randint(0,23),random.randint(1,60))]
+    print(timeStamps(soumission_alea))
+
+-----------------------------------------------------PROJET V-----------------------------------------------------------------------
+def lesAssiettes(N,M,P):
+    '''
+    In : int, int, int, nombre d'assiettes dans chaque pile
+    Out : bool, True or False si ou peux faire des piles égales ou pas
+    '''
+    nombreassiettes = N + M + P
+    print("le nombre d'assiette total est de :",nombreassiettes)
+    if nombreassiettes %3 == 0:
+        return True
+    else : 
+        return False
+        
+        
+#TESTS
+print(lesAssiettes(1,2,3))
+print(lesAssiettes(0,0,0))
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+for alea in range (5):
+    print(lesAssiettes(random.randint(0,10),random.randint(0,10),random.randint(0,10)))
+
+
+-----------------------------------------------------PROJET VI-----------------------------------------------------------------------
+def is_bissextile(annee):
+    '''
+    In : int, un nombre entier représentant une année au choix strictement supérieur à 0
+    Out :booléen, True or False si l'année est bissextile ou non
+    '''
+    
+    if(annee%4==0 and annee%100!=0 or annee%400==0):
+        print("pour l'année",annee)
+        return True
+    
+    else:
+        print("pour l'année",annee)
+        return False
+        
+        
+#TESTS
+print(is_bissextile(2000))
+print(is_bissextile(2042))
+print(is_bissextile(1800))
+print(is_bissextile(2008))
+print(is_bissextile(-1))
+print(is_bissextile(40))
+
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+for alea in range (5):
+    print(is_bissextile(random.randint(1,3000)))
+
+
+-----------------------------------------------------PROJET VII----------------------------------------------------------------------
+def parite(liste):
+    '''
+    In : list, liste de nombre entier aléatoire
+    Out : bool, True ou False en fonction de la parité de la liste
+    '''
+
+    if liste[0]%2==0:
+
+        for n in range(0,len(liste),2):
+            if liste[n]%2!=0:
+                return False
+
+        for n in range(1,len(liste),2):
+            if liste[n]%2==0:
+                return False
+
+    else:
+
+        for n in range(1,len(liste),2):
+            if liste[n]%2!=0:
+                return False
+
+        for n in range(0,len(liste),2):
+            if liste[n]%2==0:
+                return False
+
+    return True
+        
+        
+#TESTS
+print(parite([4, 5, 8, 3, 2, 5]))
+print(parite([4, 8, 8, 8, 2, 5, 7, 2]))
+print(parite([1,2,3,4, 7, 2]))
+
+
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+for alea in range (5):
+    randomlist = []
+    for i in range(random.randint(1,10)):
+        n = random.randint(1,30)
+        randomlist.append(n)
+    print('pour la liste aléatoire:',randomlist)
+    print(parite(randomlist))
+
+
+-----------------------------------------------------PROJET VIII-----------------------------------------------------------------------
+
+def chiffreCesar(mot, cle_chiffrement):
+    
+    '''
+    In : str, int, un mot et la valeur de son décalage dans l'alphabet
+    Out : str, mot modifié : décalé par la valeur de cle_chiffrement dans l'alphabet
+    '''
+    mot = mot.lower() #convertie les majuscules en minuscules (au cas où)
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    partieUn = ""
+    partieDeux = ""
+    nouveauAlphabet = ""
+    if cle_chiffrement == 0:
+        nouveauAlphabet = alphabet
+    elif cle_chiffrement > 0:
+        partieUn = alphabet[:cle_chiffrement]
+        partieDeux = alphabet[cle_chiffrement:]
+        nouveauAlphabet = partieDeux + partieUn
+    else :
+        partieUn = alphabet[:(26 + cle_chiffrement)]
+        partieDeux = alphabet[(26 + cle_chiffrement):]
+        nouveauAlphabet = partieDeux + partieUn
+    nouveauMessage = ""
+    for i in range(0,len(mot)):
+        index = alphabet.find(mot[i])
+        if index < 0:
+                nouveauMessage += mot[i]
+        else:
+                nouveauMessage += nouveauAlphabet[index]
+    return ('pour le mot aleatoire :',mot,'le nouveau mot décalé de',cle_chiffrement,'est:',nouveauMessage)
+    
+    
+##TESTS
+print(chiffreCesar("abcdefghijklmnopqrstuvwxyz",1))
+print(chiffreCesar("abcdefghijklmnopqrstuvwxyz",-1))
+print(chiffreCesar("z", -26))
+print(chiffreCesar("A", 26))
+print(chiffreCesar("a", 26))
+print(chiffreCesar("Mz", 13))
+print(chiffreCesar("William Miserolle", 13))
+
+#RANDOM TESTS
+print(' ')
+print('------------------ TEST ALEATOIRE ------------------')
+print(' ')
+import random
+import string
+
+for i in range (5):
+    longueur = random.randint(1,26)
+    lettres = string.ascii_lowercase
+    alea_str = ''.join(random.choice(lettres) for i in range(longueur))
+    print (chiffreCesar(alea_str,longueur))
