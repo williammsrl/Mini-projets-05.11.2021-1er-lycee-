@@ -1,0 +1,62 @@
+Projet I (Prologin 2019 ) : Arnaque aérienne - Niveau 1 (6 points)
+Énoncé
+Comme le disait le grand-père de Joseph Marchand, « Le plus beau voyage est celui qu'on n'a pas encore fait ». New York était dans la tête de Joseph depuis plusieurs années maintenant, et il a décidé aujourd'hui d'acheter son billet d'avion.
+
+Quelques secondes avant de cliquer sur le bouton « Acheter ! », son amie Haruhi lui envoie une liste de prix qu'elle a trouvés sur Internet. Joseph est curieux de voir si ces derniers sont moins chers que le billet qu'il s'apprêtait à acheter.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Projet II (Prologin 2011) : Les « 101 » Dalmatiens - Partie I – Niveau 1
+Énoncé
+Joseph Marchand veut faire une farce à son fidèle dalmatien Scooby-Naire : il souhaite accrocher dans sa niche une photo de ce bel animal, en inversant au préalable les couleurs blanc et noir.
+
+On vous donne un tableau de bits représentant une image en noir et blanc, vous devez implémenter une fonction qui calcule le négatif de cette image.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Projet III (PROLOGIN 2010) :
+Énoncé
+Une séquence d'ADN sera une suite finie constituée de lettres dans l'ensemble {A, T, G, C}. On vous donne en entrée une séquence d'ADN de longueur N. Écrivez une fonction qui renvoie le nucléotide (la lettre) le plus présent. Si c'est le cas de plusieurs, renvoyez celui qui vient en premier dans l'ordre alphabétique.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Projet IV (PROLOGIN 2009) : Timestamps – Niveau 1
+Énoncé
+En épreuve machine de demi-finale, vous soumettrez des solutions pour divers problèmes. On vous donne six variables entières représentant trois heures de soumission (données sous la forme de deux entiers, l'un pour les heures et l'autre pour les minutes). Écrivez une fonction qui détermine l'heure de la première soumission. Les trois heures données à votre programme seront toujours différentes.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Projet V (Prologin 2008) : Les assiettes – Niveau 1
+Énoncé
+Joseph Marchand est un homme très ordonné et il souhaite ranger ses assiettes en trois piles égales. Écrivez une fonction qui prend en argument trois entiers représentant respectivement la hauteur des trois piles actuelles et qui retourne 1 s'il est possible d'obtenir trois piles égales, 0 sinon.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Projet VI (Prologin 2007) : Bissextile – Niveau 1
+Énoncé
+Déterminer si une année est bissextile.
+
+Écrire une fonction qui prend une année (un entier) en argument et retourne True si elle est bissextile, False sinon. Attention une année n'est pas bissextile tout les 4 ans, c'est plus délicat.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Projet VII (Prologin 2006) : Parité - Niveau 1
+Enoncé
+Écrire une fonction qui teste si les nombres du tableau donné en argument sont alternativement pairs et impairs. La fonction affichera True si c'est le cas, False sinon.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Projet VIII : Code de César (chiffrements) - Niveau 1
+Énoncé
+Écrire le code permettant de chiffrer un message. La méthode cryptographique utilisée est un décalage, type cryptage de César. Le code de Cesar consiste à décaler chaque lettre d'un mot d'un même valeur dans l'ordre alphabétique. Par exemple: "zoologie" devient "appmphjf" avec un decalage positif d'une lettre. "zoologie" devient "bqqnqikg" avec un decalage positifde deux lettres. "argon" devient "zqfnm" avec un decalage négatif d'une lettre.
+
+La valeur de décalage est appelée clef de chiffrement.
+
+On utilisera seulement des lettres minuscules sans accent (ASCII)
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
